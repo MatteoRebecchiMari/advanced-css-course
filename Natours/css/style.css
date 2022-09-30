@@ -51,12 +51,14 @@ body {
     left: 50%;
     /* center the image */
     transform: translate(-50%, -50%);
+    text-align: center;
 }
 
 .heading-primary {
     color: #ffffff;
     text-transform: uppercase;
     backface-visibility: hidden;
+    margin-bottom: 60px;
 }
 
 .heading-primary-main {
@@ -108,4 +110,78 @@ body {
         opacity: 1;
         transform: translateX(0);
     }
+}
+
+@keyframes moveInBotton {
+    0% {
+        opacity: 0;
+        transform: translateY(+40px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.btn:link,
+.btn:visited {
+    display: inline-block;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 15px 40px;
+    border-radius: 30px;
+    transition: all ease-in .2s;
+    position: relative;
+}
+
+.btn-animated {
+    animation: moveInBotton 1s ease-out .75s;
+    /*Il valore iniziale dell'animazione viene applicato prima che parta*/
+    animation-fill-mode: backwards;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Btn clicked: reduce the shadow */
+.btn:active {
+    transform: translateY(-1px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-white {
+    background-color: #ffffff;
+    color: #777;
+}
+
+/* Pseudo-elements  after */
+/**  Creates an element (with optional content) that is the last child of the selected element **/
+.btn::after {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    border-radius: 30px;
+    z-index: -1;
+    transition: all .4s;
+}
+
+.btn-white:after {
+    background-color: #ffffff;
+}
+
+/* We want the Pseudo-elements element to growup when the button is hover */
+.btn:hover::after {
+    transform: scaleX(1.4) scaleY(1.6);
+    /* 
+      To make the Pseudo-elements disappear we set the opacity
+      and the animation do the trick 
+    */
+    opacity: 0;
 }

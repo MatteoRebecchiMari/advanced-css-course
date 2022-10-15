@@ -1,0 +1,30 @@
+{
+  "name": "natours",
+  "version": "1.0.0",
+  "description": "Landing page for natours website",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatteoRebecchiMari/advanced-css-course.git"
+  },
+  "keywords": [
+    "natours",
+    "css",
+    "frontweb",
+    "saas",
+    "scss"
+  ],
+  "author": "Matteo Rebecchi Mari",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatteoRebecchiMari/advanced-css-course/issues"
+  },
+  "homepage": "https://github.com/MatteoRebecchiMari/advanced-css-course#readme",
+  "devDependencies": {
+    "node-sass": "^7.0.3",
+    "npx-server": "^0.0.47"
+  }
+}

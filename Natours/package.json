@@ -4,7 +4,7 @@
   "description": "Landing page for natours website",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "compile:sass": "node-sass ./scss/style.scss ./css/style.css -w"
   },
   "repository": {
     "type": "git",
@@ -24,7 +24,6 @@
   },
   "homepage": "https://github.com/MatteoRebecchiMari/advanced-css-course#readme",
   "devDependencies": {
-    "node-sass": "^7.0.3",
-    "npx-server": "^0.0.47"
+    "node-sass": "^7.0.3"
   }
 }

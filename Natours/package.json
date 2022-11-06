@@ -4,7 +4,9 @@
   "description": "Landing page for natours website",
   "main": "index.js",
   "scripts": {
-    "compile:sass": "node-sass ./scss/style.scss ./css/style.css -w"
+    "compile-sass-live": "node-sass ./scss/style.scss ./css/style.css -w",
+    "live-server": "live-server --host=127.0.0.1 --port=8080",
+    "dev": "npm-run-all -p compile-sass-live live-server"
   },
   "repository": {
     "type": "git",

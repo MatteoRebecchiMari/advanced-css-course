@@ -48,50 +48,30 @@ body {
     background-position: top;
     /* see https://bennettfeely.com/clippy/ */
     clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%);
-}
 
-.header__logo-box {
-    position: absolute;
-    top: 4rem;
-    left: 4rem;
-}
+    /* 
+        PARENT SELECTOR '&' AS SUFFIX (See https://sass-lang.com/documentation/style-rules/parent-selector#adding-suffixes)
 
-.header__logo {
-    height: 3.5rem;
-}
+        in SCSS '&' replace the name '.header' 
+    */
+    &__logo-box {
+        position: absolute;
+        top: 4rem;
+        left: 4rem;
+    }
 
-.header__text-box {
-    position: absolute;
-    top: 40%;
-    left: 50%;
-    /* center the image */
-    transform: translate(-50%, -50%);
-    text-align: center;
-}
+    &__logo {
+        height: 3.5rem;
+    }
 
-.heading-primary {
-    color: $white;
-    text-transform: uppercase;
-    backface-visibility: hidden;
-    margin-bottom: 6rem;
-}
-
-.heading-primary__main-text {
-    display: block;
-    font-size: 6rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation: moveInLeft 1s ease-out;
-}
-
-.heading-primary__sub-text {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.74rem;
-    animation-name: moveInRight;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
+    &__text-box {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        /* center the image */
+        transform: translate(-50%, -50%);
+        text-align: center;
+    }
 }
 
 /* Animation from right to left */
@@ -127,6 +107,33 @@ body {
     }
 }
 
+.heading-primary {
+    color: $white;
+    text-transform: uppercase;
+    backface-visibility: hidden;
+    margin-bottom: 6rem;
+
+    &__main-text {
+        display: block;
+        font-size: 6rem;
+        font-weight: 400;
+        letter-spacing: 3.5rem;
+        animation: moveInLeft 1s ease-out;
+    }
+
+    &__sub-text {
+        display: block;
+        font-size: 2rem;
+        font-weight: 700;
+        letter-spacing: 1.74rem;
+        animation-name: moveInRight;
+        animation-duration: 1s;
+        animation-timing-function: ease-out;
+    }
+
+}
+
+
 @keyframes moveInBotton {
     0% {
         opacity: 0;
@@ -139,65 +146,72 @@ body {
     }
 }
 
-.btn:link,
-.btn:visited {
-    display: inline-block;
-    text-transform: uppercase;
-    text-decoration: none;
-    padding: 1.5rem 4rem;
-    border-radius: 3rem;
-    transition: all ease-in .2s;
-    position: relative;
-    font-size: 2rem;
-}
+.btn {
 
-.btn--animated {
-    animation: moveInBotton 1s ease-out .75s;
-    /*Il valore iniziale dell'animazione viene applicato prima che parta*/
-    animation-fill-mode: backwards;
-}
+    &:link,
+    &:visited {
+        display: inline-block;
+        text-transform: uppercase;
+        text-decoration: none;
+        padding: 1.5rem 4rem;
+        border-radius: 3rem;
+        transition: all ease-in .2s;
+        position: relative;
+        font-size: 2rem;
+    }
 
-.btn:hover {
-    transform: translateY(-.3rem);
-    box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
-}
+    &--white {
+        background-color: $white;
+        color: $dark-grey;
 
-/* Btn clicked: reduce the shadow */
-.btn:active {
-    transform: translateY(-.1rem);
-    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
-}
+        &::after {
+            background-color: $white;
+        }
+    }
 
-.btn--white {
-    background-color: $white;
-    color: $dark-grey;
-}
+    /* Btn hover */
+    &:hover {
+        transform: translateY(-.3rem);
+        box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
 
-/* Pseudo-elements  after */
-/**  Creates an element (with optional content) that is the last child of the selected element **/
-.btn::after {
-    content: "";
-    display: inline-block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    border-radius: 3rem;
-    z-index: -1;
-    transition: all .4s;
-}
+        /* We want the Pseudo-elements element to growup when the button is hover */
+        &::after {
+            transform: scaleX(1.4) scaleY(1.6);
+            /* 
+            To make the Pseudo-elements disappear we set the opacity
+            and the animation do the trick 
+            */
+            opacity: 0;
+        }
 
-.btn-white:after {
-    background-color: $white;
-}
+    }
 
-/* We want the Pseudo-elements element to growup when the button is hover */
-.btn:hover::after {
-    transform: scaleX(1.4) scaleY(1.6);
-    /* 
-      To make the Pseudo-elements disappear we set the opacity
-      and the animation do the trick 
-    */
-    opacity: 0;
+    /* Btn clicked: reduce the shadow */
+    &:active {
+        transform: translateY(-.1rem);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, 0.2);
+    }
+
+    /* btn animated modifier */
+    &--animated {
+        animation: moveInBotton 1s ease-out .75s;
+        /*Il valore iniziale dell'animazione viene applicato prima che parta*/
+        animation-fill-mode: backwards;
+    }
+
+    /* Pseudo-elements  after */
+    /**  Creates an element (with optional content) that is the last child of the selected element **/
+    &::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        border-radius: 3rem;
+        z-index: -1;
+        transition: all .4s;
+    }
+
 }

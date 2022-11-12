@@ -39,15 +39,15 @@ body {
   /* see https://bennettfeely.com/clippy/ */
   clip-path: polygon(0 0, 100% 0%, 100% 85%, 0% 100%); }
 
-.logo-box {
+.header__logo-box {
   position: absolute;
   top: 4rem;
   left: 4rem; }
 
-.logo {
+.header__logo {
   height: 3.5rem; }
 
-.text-box {
+.header__text-box {
   position: absolute;
   top: 40%;
   left: 50%;
@@ -61,14 +61,14 @@ body {
   backface-visibility: hidden;
   margin-bottom: 6rem; }
 
-.heading-primary-main {
+.heading-primary__main-text {
   display: block;
   font-size: 6rem;
   font-weight: 400;
   letter-spacing: 3.5rem;
   animation: moveInLeft 1s ease-out; }
 
-.heading-primary-sub {
+.heading-primary__sub-text {
   display: block;
   font-size: 2rem;
   font-weight: 700;
@@ -117,7 +117,7 @@ body {
   position: relative;
   font-size: 2rem; }
 
-.btn-animated {
+.btn--animated {
   animation: moveInBotton 1s ease-out .75s;
   /*Il valore iniziale dell'animazione viene applicato prima che parta*/
   animation-fill-mode: backwards; }
@@ -131,7 +131,7 @@ body {
   transform: translateY(-0.1rem);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2); }
 
-.btn-white {
+.btn--white {
   background-color: #fff;
   color: #777; }
 
